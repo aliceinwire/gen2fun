@@ -1,8 +1,12 @@
-cd /usr
+#!/usr/bin/env bash
+
+pushd /usr
 wget http://ftp.osuosl.org/pub/funtoo/funtoo-current/snapshots/portage-current.tar.xz
 mv /usr/portage /usr/portage_gentoo
 tar xvJf portage-current.tar.xz
-cd portage
+popd
+
+pushd /usr/portage
 git checkout funtoo.org
 emerge portage
 emerge portage -pv 2> /tmp/digests
